@@ -8,7 +8,7 @@ class BookListScreen extends StatefulWidget {
 }
 
 class _BookListScreenState extends State<BookListScreen> {
-  late List<Book> books;
+  late List<Book> books = []; 
 
   @override
   void initState() {
@@ -31,20 +31,13 @@ class _BookListScreenState extends State<BookListScreen> {
   }
 
   Widget _buildBookList() {
-    if (books == null) {
-       return Center(
-        child: CircularProgressIndicator(),
-      );
-    } else {
-     return ListView.builder(
-        itemCount: books.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(books[index].title),
-        
-          );
-        },
-      );
-    }
+    return ListView.builder(
+      itemCount: books.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(books[index].title),
+        );
+      },
+    );
   }
 }

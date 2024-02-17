@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:yefersonbonilla_proyecto/screens/home_page.dart';
-
-final GoRouter router = GoRouter(
-  initialLocation: '/',
-  errorPageBuilder: (context, state) {
-    return MaterialPage( 
-      child: Scaffold(
-        body: Center(
-          child: Text('Error: ${state.error}'),
-        ),
-      ),
-    );
-  },
+final GoRouter appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => HomePage(),
+      builder: (BuildContext context, GoRouterState state) {
+        return MyHomePage(
+          title: 'My App',
+          initialState: state, 
+        );
+      },
     ),
   ],
 );
+
+class MyHomePage extends StatelessWidget {
+  final String title;
+  final GoRouterState initialState; 
+
+  MyHomePage({required this.title, required this.initialState});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Text('My App'),
+      ),
+    );
+  }
+}
