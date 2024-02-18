@@ -1,20 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:yefersonbonilla_proyecto/screens/book_list.dart';
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  final GoRouterState? initialState;
-
-  const MyHomePage({Key? key, required this.title, this.initialState}) : super(key: key); 
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('Inicio'),
       ),
-      body: const Center(
-        child: Text('Libreria'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '¡Bienvenido a tu aplicación de libros!',
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BookListScreen(),
+                  ),
+                );
+              },
+              child: Text('Ver Libros'),
+            ),
+          ],
+        ),
       ),
     );
   }

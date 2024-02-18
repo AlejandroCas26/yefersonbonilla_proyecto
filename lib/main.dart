@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:yefersonbonilla_proyecto/core/router/app_router.dart'; 
+import 'package:yefersonbonilla_proyecto/screens/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key); 
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerDelegate: appRouter.routerDelegate, 
-      routeInformationParser: appRouter.routeInformationParser, 
+    return MaterialApp(
+      title: 'Mi Proyecto',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: HomePage(),
     );
   }
 }
