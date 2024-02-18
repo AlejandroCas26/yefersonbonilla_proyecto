@@ -8,9 +8,8 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return MyHomePage(
-          title: 'My App',
-          initialState: state,
+        return HomePage(
+         
         );
       },
     ),

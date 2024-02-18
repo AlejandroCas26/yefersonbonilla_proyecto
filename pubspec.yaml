@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^13.2.0
-  logger: ^0.9.4
+ 
 
 dev_dependencies:
   flutter_test:
