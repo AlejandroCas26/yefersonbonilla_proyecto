@@ -1,4 +1,4 @@
-import 'villanos.dart';
+import 'package:yefersonbonilla_proyecto/models/villanos.dart'; 
 
 class Book {
   final int id;
@@ -34,9 +34,9 @@ class Book {
       publisher: json['Publisher'],
       isbn: json['ISBN'],
       pages: json['Pages'],
-      notes: List<String>.from(json['Notes']),
+      notes: List<String>.from(json['Notes'] ?? []),
       createdAt: DateTime.parse(json['created_at']),
-      villains: (json['villains'] as List<dynamic>)
+      villains: (json['villains'] as List<dynamic> ?? [])
           .map((villainJson) => Villain.fromJson(villainJson))
           .toList(),
     );
